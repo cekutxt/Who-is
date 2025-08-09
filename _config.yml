@@ -1,0 +1,56 @@
+# GitHub Pages Configuration for WHOIS Checker
+
+# Site settings
+title: "WHOIS Checker - Domain Sorgulama Aracı"
+description: "Modern ve responsive domain WHOIS sorgulama web uygulaması. Domain adreslerinin kayıt durumunu, sahiplik bilgilerini ve WHOIS detaylarını kolayca sorgulayın."
+url: "https://yourusername.github.io"
+baseurl: "/cekutxt-whois"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CONTRIBUTING.md
+  - README.md
+
+# Include files
+include:
+  - _pages
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+lang: tr
+author: "WHOIS Checker Team"
+
+# Social settings
+twitter:
+  username: yourusername
+  card: summary_large_image
+
+github:
+  username: yourusername
+  repository_name: cekutxt-whois
+
+# Custom settings
+show_excerpts: false
+show_downloads: true
+
+# Navigation
+header_pages:
+  - index.html
+  - about.html

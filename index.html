@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Domain adreslerinin WHOIS bilgilerini sorgulayın. Ücretsiz, hızlı ve güvenli domain kayıt durumu kontrolü.">
+    <meta name="keywords" content="domain sorgulama, whois, domain kayıt, dns lookup, domain kontrolü">
+    <meta name="author" content="Domain WHOIS Checker">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Domain & WHOIS Sorgulama">
+    <meta property="og:description" content="Domain adreslerinin WHOIS bilgilerini kolayca sorgulayın">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Domain & WHOIS Sorgulama">
+    <meta name="twitter:description" content="Domain adreslerinin WHOIS bilgilerini kolayca sorgulayın">
+    
+    <title>Domain & WHOIS Sorgulama | Ücretsiz Domain Kontrolü</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- External CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="glass-effect fixed w-full top-0 z-50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🔍</span>
+                    <span class="text-xl font-bold text-white">WHOIS Checker</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-white/80 hover:text-white transition-colors">Ana Sayfa</a>
+                    <a href="about.html" class="text-white/80 hover:text-white transition-colors">Hakkında</a>
+                    <a href="https://github.com/yourusername/cekutxt-whois" target="_blank" class="text-white/80 hover:text-white transition-colors">GitHub</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="index.html" class="block text-white/80 hover:text-white transition-colors py-2">Ana Sayfa</a>
+                <a href="about.html" class="block text-white/80 hover:text-white transition-colors py-2">Hakkında</a>
+                <a href="https://github.com/yourusername/cekutxt-whois" target="_blank" class="block text-white/80 hover:text-white transition-colors py-2">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen pt-24 pb-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-bold text-white mb-4">
+                    🔍 Domain & WHOIS Sorgulama
+                </h1>
+                <p class="text-xl text-white/80 max-w-2xl mx-auto">
+                    Domain adreslerinin kayıt durumunu, sahiplik bilgilerini ve WHOIS detaylarını 
+                    kolayca sorgulayın. Hızlı, güvenli ve ücretsiz.
+                </p>
+            </div>
+
+            <!-- Search Form -->
+            <div class="glass-effect rounded-2xl p-8 mb-8 shadow-2xl">
+                <form id="searchForm" class="space-y-6">
+                    <div class="relative">
+                        <label for="domain" class="block text-sm font-medium text-white mb-2">
+                            Domain Adı
+                        </label>
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="domain" 
+                                name="domain"
+                                placeholder="örnek: google.com"
+                                class="w-full px-4 py-4 text-lg rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-white/40 focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                                autocomplete="off"
+                            >
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-4">
+                                <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0 9c-1.11 0-2.08-.402-2.599-1M12 21V3m0 18l3-3m-3 3l-3-3m3-9V3m0 0l3 3m-3-3l-3 3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        id="searchBtn"
+                        class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300/50 shadow-lg"
+                    >
+                        <span id="btnText">🔍 WHOIS Sorgula</span>
+                        <div id="loadingSpinner" class="hidden inline-block w-6 h-6 border-2 border-white/30 border-t-white rounded-full loading ml-2"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden glass-effect rounded-xl p-4 mb-8 border-l-4 border-red-500">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-red-200 font-medium" id="errorText"></p>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="hidden">
+                <div class="glass-effect rounded-2xl p-8 shadow-2xl result-card">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                        <svg class="w-8 h-8 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        WHOIS Sorgu Sonucu
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Domain Info Card -->
+                        <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                            <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9"></path>
+                                </svg>
+                                Domain Bilgileri
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Domain:</span>
+                                    <span class="text-white font-medium" id="domainName"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Durum:</span>
+                                    <span class="font-medium" id="domainStatus"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Kayıt Tarihi:</span>
+                                    <span class="text-white font-medium" id="creationDate"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Bitiş Tarihi:</span>
+                                    <span class="text-white font-medium" id="expirationDate"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Registrar Info Card -->
+                        <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+                            <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                Kayıt Şirketi
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Registrar:</span>
+                                    <span class="text-white font-medium" id="registrarName"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">IANA ID:</span>
+                                    <span class="text-white font-medium" id="registrarId"></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/70">Son Güncelleme:</span>
+                                    <span class="text-white font-medium" id="updatedDate"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Name Servers -->
+                        <div class="md:col-span-2 bg-white/10 rounded-xl p-6 border border-white/20">
+                            <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path>
+                                </svg>
+                                Name Servers
+                            </h3>
+                            <div id="nameServers" class="grid md:grid-cols-2 gap-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-16">
+                <div class="glass-effect rounded-xl p-6 mb-8">
+                    <div class="grid md:grid-cols-3 gap-6 text-white/80">
+                        <div>
+                            <h3 class="font-semibold text-white mb-2">WHOIS Checker</h3>
+                            <p class="text-sm">Ücretsiz ve güvenli domain sorgulama aracı</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-2">Bağlantılar</h3>
+                            <div class="space-y-1 text-sm">
+                                <a href="about.html" class="block hover:text-white transition-colors">Hakkında</a>
+                                <a href="https://github.com/yourusername/cekutxt-whois" target="_blank" class="block hover:text-white transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-2">İletişim</h3>
+                            <p class="text-sm">GitHub üzerinden destek alabilirsiniz</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-white/60 text-sm">
+                    © 2024 WHOIS Checker | 
+                    <span class="text-white/80">Open Source Domain Sorgulama Aracı</span>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

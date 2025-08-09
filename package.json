@@ -1,0 +1,49 @@
+{
+  "name": "cekutxt-whois",
+  "version": "1.0.0",
+  "description": "Modern ve responsive domain WHOIS sorgulama web uygulaması",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=8080 --open=index.html",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'Tests will be added in future versions'",
+    "lint": "echo 'Linting will be added in future versions'",
+    "deploy": "echo 'Deployed to GitHub Pages automatically'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/cekutxt-whois.git"
+  },
+  "keywords": [
+    "whois",
+    "domain",
+    "dns",
+    "lookup",
+    "checker",
+    "responsive",
+    "web-app",
+    "javascript",
+    "tailwind",
+    "github-pages"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/cekutxt-whois/issues"
+  },
+  "homepage": "https://yourusername.github.io/cekutxt-whois",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
